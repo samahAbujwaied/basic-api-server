@@ -1,14 +1,14 @@
 'use strict';
-const POSTGRES_URI =  process.env.DATABASE_URI || "postgres://localhost:5432/user";
+const POSTGRES_URI =  process.env.DATABASE_URI || "postgres://localhost:5432/samah-abujwaied";
 const { Sequelize, DataTypes } = require('sequelize');
 let sequelizeOptions = {};
 let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
-const food = require('./food.model.js');
-const clothes = require('./clothes')
+const product = require('./products.model');
+const categorie = require('./categories.model')
 
 module.exports = {
   db: sequelize,
-  Food: food(sequelize, DataTypes),
-  clothesData: clothes(sequelize, DataTypes)
+  products: product(sequelize, DataTypes),
+  categories: categorie(sequelize, DataTypes)
 };
