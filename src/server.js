@@ -8,6 +8,10 @@ const productsRoutes = require('./routes/products');
 const categoriesRouter = require('./routes/categories')
 const app = express();
 
+app.get('/',(req,res)=>{
+    res.send('Wellcome on our store');
+})
+
 app.use(express.json()); 
 app.use(productsRoutes);
 app.use(categoriesRouter);
@@ -16,9 +20,7 @@ function start(port) {
     app.listen(port, ()=> console.log(`Will run on port ${port}`))
 }
 
-app.get('/',(req,res)=>{
-    res.send('Wellcome on our store');
-})
+
 app.use('*', notFoundHandler);
 app.use(errorHandler);
 
