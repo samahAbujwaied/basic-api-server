@@ -6,6 +6,9 @@ const categories = (sequelize, DataTypes) => sequelize.define('categories', {
   },
   displayName: {
     type: DataTypes.STRING,
+  },
+  activeCategory: {
+    type: DataTypes.STRING,
   }
 
 });
