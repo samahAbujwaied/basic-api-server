@@ -1,8 +1,15 @@
 'use strict';
-const POSTGRES_URI =  process.env.DATABASE_URI || "postgres://localhost:5432/samah-abujwaied";
+const DATABASE_URL =  process.env.DATABASE_URI ;//|| "postgres://localhost:5432/samah-abujwaied";
 const { Sequelize, DataTypes } = require('sequelize');
-let sequelizeOptions = {};
-let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
+let sequelizeOptions = {
+  dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      }
+    }
+} ;
+let sequelize = new Sequelize(DATABASE_URL, sequelizeOptions);
 
 const product = require('./products.model');
 const categorie = require('./categories.model')
