@@ -8,9 +8,7 @@ const productsRoutes = require('./routes/products');
 const categoriesRouter = require('./routes/categories')
 const app = express();
 
-app.get('/',(req,res)=>{
-    res.send('Wellcome on our store');
-})
+app.get('/', (req, res) => { res.send("hello world");});
 
 app.use(express.json()); 
 app.use(productsRoutes);
